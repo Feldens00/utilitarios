@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="listaTelefonica">
+<head>
+  <title>Angular JS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <style type="text/css">
+  	.jumbotron{
+  		width: 80%;
+  		text-align: center;
+  		margin-left: auto;
+  		margin-right: auto;
+  		margin-top: 20px;
+  	}
+
+  	th{
+  	  text-align: center; 
+  	}
+
+  	.selecionado{
+  		background-color: yellow; 
+  	}
+
+  	.negrito{
+  		font-weight: bold; 
+  	}
+
+  	hr {
+			border-color: #999;
+	}
+
+  </style>
+  <script>
+  	angular.module("listaTelefonica",[]);
+  	angular.module("listaTelefonica").controller('listaTelefonicaController', function($scope){
+  		$scope.app = "Lista Telefonica";
+  		$scope.contatosArray = [
+  			{nome: "Artur", fone: "9999-7777", data: "24/10/2017 14:02", operadora:{nome: "Oi", cod: "21", categoria: "Celular"}},
+  			{nome: "David", fone: "9999-7766", data: "23/10/2017 11:54", operadora:{nome: "Vivo", cod: "15", categoria: "Celular"}},
+  			{nome: "Vitor", fone: "9999-7755", data: "01/05/2014 07:30", operadora:{nome: "Tim", cod: "14", categoria: "Celular"}}
+  		];
+  		$scope.operadorasArray = [
+  			{nome: "Oi", cod: "21", categoria: "Celular", preco: 2},
+  			{nome: "Tim", cod: "14", categoria: "Celular", preco: 3},
+  			{nome: "Vivo", cod: "15", categoria: "Celular", preco: 1},
+  			{nome: "Embratel", cod: "25", categoria: "Fixo", preco: 2},
+  			{nome: "GVT", cod: "41", categoria: "Fixo", preco: 4}
+  		];
+  		$scope.addContato = function (contato) {
+  			contato.data= new Date();
+  			$scope.contatosArray.push(angular.copy(contato));
+  			delete $scope.contato;
+  			$scope.contatoForm.$setPristine();
+  		};
+  		$scope.deleteContato = function (contatos) {
+  			$scope.contatosArray = contatos.filter(function (contato) {
+  				if (!contato.selecionado) return contato;
+  			});
+  		};
+  		$scope.contatoSelect = function (contatos){
+  			return contatos.some(function(contato){
+  				return contato.selecionado;
+  			})
+  		}
+  		$scope.ordenar = function (campo){
+  			$scope.filtroBusca = campo;
+  			$scope.direcao = !$scope.direcao;
+  		}
+
+  	});
+  </script>
+</head>
+<body ng-controller="listaTelefonicaController">
+	<div class="jumbotron">
+		<h4 ng-bind="app"></h4>
+		<div class="container">
+			<div class="form-group">
+				<input class="form-control" type="text" ng-model="filtroBusca" placeholder="Pesquise">
+			</div>
+			<table ng-show="contatosArray.length > 0" class="table">
+				<thead>
+					<tr>
+						<th></th>
+						<th><a href="" ng-click="ordenar(nome)">Nome</a></th>
+						<th><a href="" ng-click="ordenar(fone)">Telefone</a></th>
+						<th><a href="" ng-click="ordenar(operadora.nome)">Operadora</a></th>
+						<th><a href="" ng-click="ordenar(date)">Data</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-class="{'selecionado negrito': contato.selecionado}" ng-repeat="contato in contatosArray | filter: filtroBusca | orderBy:'nome': direcao">
+						<td><input type="checkbox" ng-model="contato.selecionado"></td>
+						<td>{{contato.nome | uppercase}}</td>
+						<td>{{contato.fone}}</td>
+						<td>{{contato.operadora.nome | lowercase}}</td>
+						<td>{{contato.data | date: "dd/MM/yyyy HH:mm"}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<hr/>
+			<form name="contatoForm">
+				<div class="form-group">
+					<input class="form-control" type="text" ng-model="contato.nome" ng-required="true" ng-minlength="4" name="nome" placeholder="Nome">
+				</div>
+				<div class="form-group">
+					<input class="form-control" type="text" ng-model="contato.fone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/" name="fone" placeholder="Telefone">
+				</div>
+				<div class="form-group">
+					<select class="form-control" ng-model="contato.operadora"  ng-options="operadora.nome + ' ('+ (operadora.preco | currency) + ') ' group by operadora.categoria for operadora in operadorasArray |orderBy: '-nome'">
+						<option value="">Selecione uma operadora</option>
+					</select>
+				</div>
+
+				<div ng-show="contatoForm.nome.$error.required && contatoForm.nome.$dirty" class="alert alert-danger">
+					<p> Preencha o campo Nome</p>
+				</div>
+				<div ng-show="contatoForm.nome.$error.minlength" class="alert alert-danger">
+					<p> O campo nome deve ter no minimo 4 caracteres</p>
+				</div>
+				<div ng-show="contatoForm.fone.$error.required  && contatoForm.fone.$dirty" class="alert alert-danger">
+					<p> Preencha o campo Telefone</p>
+				</div>
+				<div ng-show="contatoForm.fone.$error.pattern" class="alert alert-danger">
+					<p> O Formato deve ser 99999-9999</p>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary" ng-click="addContato(contato)" ng-disabled="contatoForm.$invalid">Adicionar Contato</button>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-danger" ng-click="deleteContato(contatosArray)" ng-if="contatoSelect(contatosArray)">Deletar Contato</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="col-sm-12 text-center">
+		<h4>Criado por Artur Feldens</h4>
+	</div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<style>
+  .insta-container{
+      margin: auto;
+      max-width: 344px; 
+      width: calc(100% - 2px); 
+      height: 216px;
+    }
+    .div-big{
+      margin-top: -4%;
+      margin-left:1px;
+      float: left;
+      width: 60%;
+      height: 69%;
+    }
+    .img-big{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+    .colum-div{
+      margin-top: -4%;
+      margin-left: 1px;
+      float: left;
+      width: 39%;
+      height: 68%;
+    }
+    .small-div{
+      margin: 1px;
+     
+      width: calc(99% -1%);
+      height: 50%;
+    }
+    .img-small{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+   @media screen and (max-width:797px) and (min-width:780px) {
+      .colum-div{
+      margin-top: -4%;
+      margin-left: 1px;
+      float: left;
+      width: 38%;
+      height: 68%;
+    }
+}
+</style>
+
+
+
+
+
+<div class="insta-container">
+<iframe class="instagram-media instagram-media-rendered" id="instagram-embed-1" src="https://www.instagram.com/p/BZbSWnVlCTZ/embed/?cr=1&amp;v=7&amp;wp=198#%7B%22ci%22%3A1%2C%22os%22%3A130.29000000000002%7D" allowtransparency="true" frameborder="0" data-instgrm-payload-id="instagram-media-payload-1" scrolling="no" style="background: rgb(255, 255, 255); height: 64px; border: 1px solid rgb(219, 219, 219); margin: 1px 1px 12px; max-width: 340px; width: calc(100% - 2px);  box-shadow: none; display: block; padding: 0px;"></iframe>
+
+  <div class="div-big"></div>
+  <div class="colum-div">
+      <div class="small-div" id="small-div-1"></div>
+      <div class="small-div" id="small-div-2"></div>
+  </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    jQuery.getJSON("http://posfg.com.br/funcoes/instagram/", function(dados){
+        
+         var img1 = '<a href="https://www.instagram.com'+dados.src[0]+'" target="_blank"><image class="img-big" src="'+dados.img[1]+'"></a>';
+         var img2 = '<a href="https://www.instagram.com'+dados.src[1]+'" target="_blank"><image class="img-small" src="'+dados.img[2]+'"></a>';
+         var img3 = '<a href="https://www.instagram.com'+dados.src[2]+'" target="_blank"><image class="img-small" src="'+dados.img[3]+'"></a>';
+         jQuery('.div-big').html(img1);
+         jQuery('#small-div-1').html(img2);
+         jQuery('#small-div-2').html(img3);
+    });   
+       
+       
+    
+
+  });
+</script>
+
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+
+<a href=""></a>

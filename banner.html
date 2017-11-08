@@ -1,0 +1,336 @@
+<style>
+    .containerslider {
+        width: 100%;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        white-space: nowrap justify-content: center;
+        height: 100%;
+    }
+    #innercontent {
+        width: 3060px;
+    }
+    #content {
+        float: left;
+        overflow: hidden;
+        width: 100%;
+        margin: auto;
+        height: 210px;
+    }
+    .bloco {
+        float: left;
+        /*existe algo no css da pagina diminuindo 20 px, por isso width e height estão com 170*/
+        
+        width: 170px;
+        height: 200px;
+        padding: 10px;
+        text-align: center;
+    }
+    .bloco p{
+        text-align: center;
+        margin-top: 10px;
+    }
+    .innerbloco {
+        width: 100%;
+        height: 100%;
+    }
+    .btnesq {
+        float: left;
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .btndir {
+        float: left;
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #select-container {
+        display: none;
+    }
+    @media screen and (max-width: 779px) {
+        .btnesq {
+            display: none;
+        }
+        .btndir {
+            display: none;
+        }
+        .bloco {
+            display: none;
+        }
+        #select-container {
+            display: block;
+        }
+    }
+</style>
+<div class="container" id="select-container">
+    <div class="form-group" style="width: 70%; margin: auto;">
+        <select id="selector" class="form-control" onchange="select_curso()" >
+            <option value="">Selecione o Curso</option>
+            <option value="medicina">Medicina</option>
+            <option value="multidisciplinar">Multidisciplinar</option>
+            <option value="odontologia">Odontologia</option>
+            <option value="nutricao">Nutrição</option>
+            <option value="veterinaria">Veterinaria</option>
+            <option value="fisioterapia">Fisioterapia</option>
+            <option value="farmacia">Farmácia</option>
+            <option value="enfermagem">Enfermagem</option>
+            <option value="direito">Direito</option>
+            <option value="educacao">Educação</option>
+            <option value="engenharia">Engenharia</option>
+            <option value="administracao">Administração</option>
+            <option value="tecnologia-da-informacao">Tecnologia da Informação</option>
+            <option value="arquitetura">Arquitetura</option>
+            <option value="estetica">Estética</option>
+            <option value="ambiental-e-rural">Ambiental e Rural</option>
+            <option value="psicologia">Psicologia</option>
+        </select>
+    </div>
+</div>
+<div class="containerslider">
+    <div class="btnesq" id="esq">
+        <i class="fa fa-chevron-left fa-4x" aria-hidden="true"></i>
+    </div>
+    <div id="content">
+        <div id="innercontent">
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#medicina">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/MEDICINA-150x150-c.png" width="150" height="159" alt="MEDICINA" title="MEDICINA">
+                    </a>
+                    <p>MEDICINA</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#multidisciplinar">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/P-MULTIDISCIPLINAR-1-150x150-c.png" width="150" height="159" alt="MULTIDISCIPLINAR" title="MULTIDISCIPLINAR">
+                    </a>
+                    <p>MULTIDISCIPLINAR</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#odontologia">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/ODONTOLOGIA-_-150x150-c-1.png" width="150" height="159" alt="ODONTOLOGIA" title="ODONTOLOGIA">
+                    </a>
+                    <p>ODONTOLOGIA</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#nutricao">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/nutricao-nome-150x150-c.png" width="150" height="159" alt="NUTRIÇÃO" title="NUTRIÇÃO">
+                    </a>
+                    <p>NUTRIÇÃO</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#veterinaria">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/VETERINARIA-150x150-c.png" width="150" height="159" alt="VETERINARIA" title="VETERINARIA">
+                    </a>
+                    <p>VETERINARIA</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#fisioterapia">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/FISIOTERAPIA_-150x150-c.png" width="150" height="159" alt="FISIOTERAPIA" title="FISIOTERAPIA">
+                    </a>
+                    <p>FISIOTERAPIA</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#farmacia">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/FRAMACIA-150x150-c.png" width="150" height="159" alt="FARMÁCIA" title="FARMÁCIA">
+                    </a>
+                    <p>FARMACIA</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#enfermagem">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/ENFERMAGEM-150x150-c.png" width="150" height="159" alt="ENFERMAGEM" title="ENFERMAGEM">
+                    </a>
+                    <p>ENFERMAGEM</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#direito">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/DIREITO-150x150-c.png" width="150" height="159" alt="DIREITO" title="DIREITO">
+                    </a>
+                    <p>DIREITO</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#educacao">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/PEDAGOGIA-150x150-c.png" width="150" height="159" alt="EDUCAÇÃO" title="EDUCAÇÃO">
+                    </a>
+                    <p>EDUCAÇÃO</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#engenharia">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/engenharia-civil-150x150-c.png" width="150" height="159" alt="ENGENHARIA CIVIL" title="ENGENHARIA CIVIL">
+                    </a>
+                    <p>EDUCAÇÃO</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#administracao">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/ADMINISTRAÇÃO-150x150-c.png" width="150" height="159" alt="ADMINISTRAÇÃO" title="ADMINISTRAÇÃO">
+                    </a>
+                    <p>ADMINISTRAÇÃO</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#tecnologia-da-informacao">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/TECNOLOGIA-DA-INFORMAÇÃO-150x150-c.png" width="150" height="159" alt="TECNOLOGIA DA INFORMAÇÃO" title="TECNOLOGIA DA INFORMAÇÃO">
+                    </a>
+                    <p>INFORMAÇÃO</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#arquitetura">
+                        <img class="vc_single_image-img " src="http://posfg.com.br/wp-content/uploads/2016/04/P-Ambiental-7-150x150-c.png" width="150" height="159" alt="ARQUITETURA" title="ARQUITETURA">
+                    </a>
+                    <p>ARQUITETURA</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#biomedicina">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/P-Ambiental-8-150x150-c.png" width="150" height="159" alt="BIOMEDICINA" title="BIOMEDICINA">
+                    </a>
+                    <p>BIOMEDICINA</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#estetica">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/P-Ambiental-9-150x150-c.png" width="150" height="159" alt="ESTETICA" title="ESTÉTICA">
+                    </a>
+                    <p>ESTÉTICA</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#ambiental-e-rural">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/ambiental-150x150-c.png" width="150" height="159" alt="AMBIENTAL E RURAL" title="AMBIENTAL E RURAL">
+                    </a>
+                    <p>AMBIENTAL E RURAL</p>
+                </div>
+            </div>
+            <div class="bloco">
+                <div class="innerbloco">
+                    <a href="/cursos#psicologia">
+                        <img class="vc_single_image-img " src="//posfg.com.br/wp-content/uploads/2016/04/P-psicologia-150x150-c.png" width="150" height="159" alt="PSICOLOGIA" title="PSICOLOGIA">
+                    </a>
+                    <p>PSICOLOGIA</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="btndir" id="dir">
+        <i class="fa fa-chevron-right fa-4x" aria-hidden="true"></i>
+    </div>
+</div>
+
+
+
+<script>
+    var pos = 0;
+
+    scrolladjust();
+
+      function select_curso() {
+          var val = document.getElementById("selector").value;
+          if (val=="" || val == undefined) {
+            alert("Nenhum curso foi selecionado!");
+          }else{
+
+            window.location="https://posfg.com.br/cursos/#"+val;
+          }
+      }
+
+    jQuery(document).ready(function() {
+
+
+
+        var timeout = 1;
+
+        jQuery(document).on('mousemove', function() {
+            if (timeout !== null) {
+                clearTimeout(timeout);
+            }
+            timeout = setInterval(function() {
+                moverdir();
+
+            }, 4000);
+        });
+
+        function moverdir() {
+            var wcontent = jQuery("#content").width();
+            var winnercontent = jQuery("#innercontent").width();
+            var maxscroll = winnercontent - wcontent;
+
+
+            var pinnercontent = (jQuery("#content").offset().left) - (jQuery("#innercontent").offset().left);
+
+            if ((pinnercontent + 170) <= maxscroll) {
+                pos += 170;
+            } else {
+
+                pos = 0;
+            }
+            jQuery('#content').animate({
+                scrollLeft: pos + "px"
+            }, "fast");
+        }
+
+        jQuery("#dir").click(function() {
+            moverdir();
+        });
+
+        jQuery("#esq").click(function() {
+
+            var wcontent = jQuery("#content").width();
+            var winnercontent = jQuery("#innercontent").width();
+            var maxscroll = winnercontent - wcontent;
+
+            var pinnercontent = (jQuery("#content").offset().left) - (jQuery("#innercontent").offset().left);
+
+
+            if (pos > 0) {
+                pos -= 170;
+            } else {
+                pos = maxscroll;
+            }
+            console.log(pinnercontent);
+            jQuery('#content').animate({
+                scrollLeft: pos + "px"
+            }, "fast");
+        });
+
+    });
+
+    function scrolladjust() {
+        var bodywidth = jQuery("body").width();
+        bodywidth = bodywidth * 0.9;
+        jQuery("#content").width((bodywidth) - (bodywidth % 170));
+        console.log('ajusta');
+    }
+
+    jQuery(window).resize(function() {
+        scrolladjust();
+    });
+</script>
